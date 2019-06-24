@@ -1,11 +1,8 @@
-let m = new Map();
-let s = Symbol();
+import parse from './parser';
+import transpile from './transpiler';
 
-m.set("hello", 42);
-m.set(s, 34);
-m.get(s) === 34;
-m.size === 2;
+// const expression = 'λx.x';
+// const lexer = str => str.split(/\./);
 
-for (let [ key, val ] of m.entries()) {
-    console.log(key + " = " + val);
-}
+const lexemArray = ['λx.', 'x'];
+console.log(transpile(parse(lexemArray)));
