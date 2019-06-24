@@ -4,7 +4,7 @@ const lambdaTranspiler = astNode => `${astNode.variable} => `;
 const boundVariableTranspiler = astNode => `(${astNode.variable})`;
 
 export default function transpile(astNode, expression = '') {
-    if (astNode === null) return eval(expression);
+    if (astNode === null) return expression;
 
     const recurse = newExpression => transpile(astNode.apply, expression.concat(newExpression));
 
